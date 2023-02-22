@@ -1,0 +1,29 @@
+services:
+  rabbitmq:
+    restart: always
+    hostname: rabbit
+    image: rabbitmq:3.11-alpine
+    ports:
+      - "5672:5672"
+
+  mongo:
+    restart: always
+    image: mongo:5.0-focal
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+
+  web:
+    restart: always
+    build: .
+    command: >
+      sh -c "celery -A sec_file worker --detach -l INFO &&
+            python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports: 
+      - "8000:8000"
+    depends_on:
+      - mongo
+      - rabbitmq

@@ -1,0 +1,10 @@
+<div style="padding:40px;margin:40px;border:1px solid #ccc">
+    <h1>Set sensitive keywords here</h1>
+    <h4>The set of keywords you provide will COMPLETELY REPLACE the previous set of keywords.</h4>
+    <h4>Go to /keywords/get to get the current set of active keywords.</h4>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form><hr>
+</div>
