@@ -1,3 +1,5 @@
 /sec_file/uploads/*
 lib/
 lib64/
+# ignore all _pycache_ directories
+**/__pycache__/
