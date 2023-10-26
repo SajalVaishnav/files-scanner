@@ -22,7 +22,7 @@ Do note that the test coverage is limited to the celery task and the Container c
 
 ### Architecture overview  
 
-![Architecture overview](./sec_file/architecture.png)
+![Architecture overview](./architecture.png)
 ### Database schema
 
 - FILE_RECORDS_COLLECTION  
